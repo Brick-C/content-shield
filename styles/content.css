@@ -1,0 +1,92 @@
+/* Content Guardian - Injected Styles */
+
+.content-guardian-wrapper {
+  position: relative;
+}
+
+.content-guardian-hidden {
+  display: none !important;
+}
+
+.content-guardian-blurred {
+  filter: blur(8px) !important;
+  transition: filter 0.3s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+.content-guardian-flagged {
+  position: relative;
+  border-left: 4px solid #ef4444 !important;
+  background: rgba(239, 68, 68, 0.05) !important;
+}
+
+.content-guardian-unblur {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+  transition: all 0.2s ease;
+}
+
+.content-guardian-unblur:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.content-guardian-flag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ef4444;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Platform-specific adjustments */
+[data-testid="tweet"] .content-guardian-flag,
+.Post .content-guardian-flag {
+  top: 12px;
+  right: 12px;
+}
+
+.ytd-rich-grid-media .content-guardian-flag,
+.ytd-compact-video-renderer .content-guardian-flag {
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth animations */
+.content-guardian-wrapper {
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content-guardian-flag,
+.content-guardian-unblur {
+  animation: fadeIn 0.3s ease;
+}

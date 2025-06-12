@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Shield</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup">
+      <div class="header">
+        <div class="logo">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M12 1v6m0 6v6m6-13a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V6Z"
+            />
+            <path d="M8 10h8M8 14h8" />
+          </svg>
+          <h1>Content Shield</h1>
+        </div>
+        <button class="toggle-btn" id="masterToggle">
+          <span class="toggle-slider"></span>
+        </button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" id="filteredCount">0</span>
+          <span class="stat-label">Filtered Today</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="keywordCount">0</span>
+          <span class="stat-label">Active Keywords</span>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button class="action-btn" id="addQuickFilter">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+          </svg>
+          Quick Filter
+        </button>
+        <button class="action-btn" id="openOptions">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 1v6m0 6v6" />
+          </svg>
+          Settings
+        </button>
+      </div>
+
+      <div class="recent-activity">
+        <h3>Recent Activity</h3>
+        <div class="activity-list" id="activityList">
+          <div class="activity-item">
+            <span class="activity-text">No recent activity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Filter Modal -->
+      <div class="modal-overlay" id="quickFilterModal">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Add Quick Filter</h3>
+            <button class="modal-close" id="closeQuickModal">×</button>
+          </div>
+          <div class="modal-body">
+            <input
+              type="text"
+              id="quickKeyword"
+              placeholder="Enter keyword to filter..."
+            />
+            <select id="quickAction">
+              <option value="blur">Blur Content</option>
+              <option value="hide">Hide Content</option>
+              <option value="flag">Flag Content</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" id="cancelQuick">Cancel</button>
+            <button class="btn btn-primary" id="saveQuick">Add Filter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
